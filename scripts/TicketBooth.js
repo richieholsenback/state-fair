@@ -3,6 +3,7 @@ const eventHub = document.querySelector("#state-fair")
 
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "rideTicket") {
+        console.log(clickEvent)
         const rideEvent = new CustomEvent("rideTicketPurchased")
         eventHub.dispatchEvent(rideEvent)
     }
