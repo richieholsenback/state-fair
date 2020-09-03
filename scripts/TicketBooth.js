@@ -41,14 +41,22 @@ eventHub.addEventListener("click", clickEvent => {
     }
 })
 
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.classList === "button") {
+        console.log(clickEvent)
+        const ticketCounter = new CustomEvent("ticketCount")
+        eventHub.dispatchEvent(ticketCounter)
+    }
+})
+
 export const TicketBooth = () => {
     contentTarget.innerHTML = `
         <div class="ticketBooth">
-            <button id="rideTicket">Ride Ticket</button>
-            <button id="foodTicket">Food Ticket</button>
-            <button id="gameTicket">Game Ticket</button>
-            <button id="showTicket">Side Show Ticket</button>
-            <button id="bigTicket">Full Package Ticket</button>
+            <button class="button" id="rideTicket">Ride Ticket</button>
+            <button class="button" id="foodTicket">Food Ticket</button>
+            <button class="button" id="gameTicket">Game Ticket</button>
+            <button class="button" id="showTicket">Side Show Ticket</button>
+            <button class="button" id="bigTicket">Full Package Ticket</button>
         </div>
     `
 }
